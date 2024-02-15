@@ -40,6 +40,9 @@ if (userChoice === null) {
 const userChoiceString = choiceToString[userChoice];
 const computerChoiceString = choiceToString[computerChoice];
 
+console.log("User Choice:", userChoiceString);
+console.log("Computer Choice:", computerChoiceString);
+
 if (userChoice === computerChoice) {
 	alert(`User chose ${userChoiceString}
 	 Computer chose ${computerChoiceString}
@@ -48,36 +51,39 @@ if (userChoice === computerChoice) {
 
 // this will be user win senario
 
-if (userChoice === "0") {
-	if (computerChoice === "1") {
+if (userChoiceString === "Rock") {
+	if (computerChoiceString === "Paper") {
 		alert(`User chose ${userChoiceString}
 	 Computer chose ${computerChoiceString}
 	 Computer wins`);
-	} else {
+	}
+	if (computerChoiceString === "Scissors") {
 		alert(`User chose ${userChoiceString}
 	 Computer chose ${computerChoiceString}
 	 User wins`);
 	}
 }
 
-if (userChoice === "1") {
-	if (computerChoice === "2") {
+if (userChoiceString === "Paper") {
+	if (computerChoiceString === "Scissors") {
 		alert(`User chose ${userChoiceString}
 	 Computer chose ${computerChoiceString}
 	 Computer wins`);
-	} else {
+	}
+	if (computerChoiceString === "Rock") {
 		alert(`User chose ${userChoiceString}
 		Computer chose ${computerChoiceString}
 		User wins`);
 	}
 }
 
-if (userChoice === "2") {
-	if (computerChoice === "0") {
+if (userCuserChoiceStringhoice === "Scissors") {
+	if (computerChoiceString === "Rock") {
 		alert(`User chose ${userChoiceString}
 	 Computer chose ${computerChoiceString}
 	 Computer wins`);
-	} else {
+	}
+	if (computerChoiceString === "Paper") {
 		alert(`User chose ${userChoiceString}
 	 Computer chose ${computerChoiceString}
 	 User wins`);
