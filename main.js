@@ -49,43 +49,37 @@ if (userChoice === computerChoice) {
 	 It was a tie`);
 }
 
+function showWins(entity) {
+	alert(`User chose ${userChoiceString}
+	 Computer chose ${computerChoiceString}
+	 ${entity} wins`);
+}
+
 // this will be user win senario
 
 if (userChoiceString === "Rock") {
 	if (computerChoiceString === "Paper") {
-		alert(`User chose ${userChoiceString}
-	 Computer chose ${computerChoiceString}
-	 Computer wins`);
+		showWins("Computer");
 	}
 	if (computerChoiceString === "Scissors") {
-		alert(`User chose ${userChoiceString}
-	 Computer chose ${computerChoiceString}
-	 User wins`);
+		showWins("User");
 	}
 }
 
 if (userChoiceString === "Paper") {
 	if (computerChoiceString === "Scissors") {
-		alert(`User chose ${userChoiceString}
-	 Computer chose ${computerChoiceString}
-	 Computer wins`);
+		showWins("Computer");
 	}
 	if (computerChoiceString === "Rock") {
-		alert(`User chose ${userChoiceString}
-		Computer chose ${computerChoiceString}
-		User wins`);
+		showWins("User");
 	}
 }
 
 if (userCuserChoiceStringhoice === "Scissors") {
 	if (computerChoiceString === "Rock") {
-		alert(`User chose ${userChoiceString}
-	 Computer chose ${computerChoiceString}
-	 Computer wins`);
+		showWins("Computer");
 	}
 	if (computerChoiceString === "Paper") {
-		alert(`User chose ${userChoiceString}
-	 Computer chose ${computerChoiceString}
-	 User wins`);
+		showWins("User");
 	}
 }
