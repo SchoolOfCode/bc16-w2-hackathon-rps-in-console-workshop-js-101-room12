@@ -75,7 +75,7 @@ if (userChoiceString === "Paper") {
 	}
 }
 
-if (userCuserChoiceStringhoice === "Scissors") {
+if (userChoiceString === "Scissors") {
 	if (computerChoiceString === "Rock") {
 		showWins("Computer");
 	}
