@@ -35,3 +35,51 @@ const userChoice = getUserChoice();
 if (userChoice === null) {
 	alert("You've ended the game!");
 }
+
+// this will be tie senario
+const userChoiceString = choiceToString[userChoice];
+const computerChoiceString = choiceToString[computerChoice];
+
+if (userChoice === computerChoice) {
+	alert(`User chose ${userChoiceString}
+	 Computer chose ${computerChoiceString}
+	 It was a tie`);
+}
+
+// this will be user win senario
+
+if (userChoice === "0") {
+	if (computerChoice === "1") {
+		alert(`User chose ${userChoiceString}
+	 Computer chose ${computerChoiceString}
+	 Computer wins`);
+	} else {
+		alert(`User chose ${userChoiceString}
+	 Computer chose ${computerChoiceString}
+	 User wins`);
+	}
+}
+
+if (userChoice === "1") {
+	if (computerChoice === "2") {
+		alert(`User chose ${userChoiceString}
+	 Computer chose ${computerChoiceString}
+	 Computer wins`);
+	} else {
+		alert(`User chose ${userChoiceString}
+		Computer chose ${computerChoiceString}
+		User wins`);
+	}
+}
+
+if (userChoice === "2") {
+	if (computerChoice === "0") {
+		alert(`User chose ${userChoiceString}
+	 Computer chose ${computerChoiceString}
+	 Computer wins`);
+	} else {
+		alert(`User chose ${userChoiceString}
+	 Computer chose ${computerChoiceString}
+	 User wins`);
+	}
+}
