@@ -1,7 +1,3 @@
-// 0 = Rock
-// 1 = Paper
-// 2 = Scissors
-
 const rules = [
 	{
 		text: "Rock",
