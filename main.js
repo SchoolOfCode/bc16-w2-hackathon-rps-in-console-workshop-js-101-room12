@@ -60,15 +60,16 @@ function showMessage(msg) {
 	alert(msg);
 }
 
-const configureShowGameResult = (userChoice, computerChoice) => (result) => {
-	showMessage(`
-User chose ${userChoice}
+const configureShowGameResult =
+	(username, userChoice, computerChoice) => (result) => {
+		showMessage(`
+${username} chose ${userChoice}
 Computer chose ${computerChoice}
 
 ${result}`);
-};
+	};
 
-function playGame(score) {
+const setupGame = (username) => (score) => {
 	// Get choices
 	const computerChoice = Math.floor(Math.random() * rules.length).toString();
 	const userChoice = getUserChoice();
@@ -77,10 +78,8 @@ function playGame(score) {
 	const userChoiceString = choiceToString(userChoice);
 	const computerChoiceString = choiceToString(computerChoice);
 
-	console.log("User Choice:", userChoiceString);
-	console.log("Computer Choice:", computerChoiceString);
-
 	const showGameResult = configureShowGameResult(
+		username,
 		choiceToEmoji(userChoice),
 		choiceToEmoji(computerChoice),
 	);
@@ -96,7 +95,7 @@ function playGame(score) {
 		}
 		// User wins
 		else if (result === 1) {
-			showGameResult("User wins");
+			showGameResult(`${username} wins`);
 			score.user += 1;
 		}
 		// Computer Wins
@@ -106,9 +105,13 @@ function playGame(score) {
 		}
 	}
 	return { ...score };
-}
+};
 
 // const useEmojis = prompt("Use Emojis? Y / N").toUpperCase();
+
+const username = prompt("What is your name?");
+
+const playGame = setupGame(username);
 
 let score = playGame({ user: 0, computer: 0 });
 
