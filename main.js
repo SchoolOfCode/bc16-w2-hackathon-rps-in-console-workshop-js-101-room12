@@ -5,7 +5,7 @@
 const rules = [
 	{
 		text: "Rock",
-		emoji: "🤘",
+		emoji: "🪨",
 		winsAgainst: [1, 3],
 		verbs: ["flattens", "crushes"],
 	},
@@ -29,7 +29,7 @@ const rules = [
 	},
 	{
 		text: "Paper",
-		emoji: "🧻",
+		emoji: "📃",
 		winsAgainst: [0, 2],
 		verbs: ["covers", "disproves"],
 	},
@@ -137,23 +137,28 @@ const setupGame = (username) => (score) => {
 	return { ...score };
 };
 
-// const useEmojis = prompt("Use Emojis? Y / N").toUpperCase();
+const button = document.getElementById("play");
+button.addEventListener("click", () => {
+	const username = prompt("What is your name?");
 
-const username = prompt("What is your name?");
+	if (username === null) {
+		return;
+	}
 
-const playGame = setupGame(username);
+	const playGame = setupGame(username);
 
-let score = playGame({ user: 0, computer: 0 });
+	let score = playGame({ user: 0, computer: 0 });
 
-while (score.user < 2 && score.computer < 2) {
-	score = playGame(score);
-}
+	while (score.user < 2 && score.computer < 2) {
+		score = playGame(score);
+	}
 
-showMessage(`
-Best of 3:
+	showMessage(`
+	Best of 3:
 
-User Score = ${score.user}
-Computer Score = ${score.computer}
+	User Score = ${score.user}
+	Computer Score = ${score.computer}
 
-${score.user > score.computer ? "User" : "Computer"} wins!
-`);
+	${score.user > score.computer ? "User" : "Computer"} wins!
+	`);
+});
