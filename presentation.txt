@@ -1,0 +1,17 @@
+// David Introduction
+
+// Mahdi Introduiction
+
+// Show MVP plan
+
+// Show how that evolved into the Best of 3 plan
+
+// Challenges
+
+// What worked well, what didn't
+
+// rethink the plan in terms of game rules - making it a table
+
+// Look at and explain some of the code related to that
+
+// Demo
