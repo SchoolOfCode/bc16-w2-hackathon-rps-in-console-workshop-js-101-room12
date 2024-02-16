@@ -2,10 +2,11 @@
 // 1 = Paper
 // 2 = Scissors
 
-const choiceToString = ["Rock", "Paper", "Scissors"];
+const choiceStringArray = ["Rock", "Paper", "Scissors"];
 
-// get computer's choice
-const computerChoice = Math.floor(Math.random() * 3);
+function choiceToString(choice) {
+	return choiceStringArray[choice];
+}
 
 function getUserChoice() {
 	const question = `Choose a number!
@@ -30,56 +31,69 @@ function getUserChoice() {
 	return choice;
 }
 
-const userChoice = getUserChoice();
+const configureShowGameResult = (userChoice, computerChoice) => (result) => {
+	alert(`User chose ${userChoice}
+	Computer chose ${computerChoice}
+	${result}`);
+};
 
-if (userChoice === null) {
-	alert("You've ended the game!");
+function playGame(score) {
+	// Get computer's choice
+	const computerChoice = Math.floor(Math.random() * 3);
+
+	// Get the user's choice
+	const userChoice = getUserChoice();
+
+	const userChoiceString = choiceToString(userChoice);
+	const computerChoiceString = choiceToString(computerChoice);
+
+	console.log("User Choice:", userChoiceString);
+	console.log("Computer Choice:", computerChoiceString);
+
+	const showGameResult = configureShowGameResult(
+		userChoiceString,
+		computerChoiceString,
+	);
+
+	if (userChoice === null) {
+		alert("You've ended the game!");
+	}
+
+	// this will be tie senario
+	if (userChoice === computerChoice) {
+		showGameResult("It was a tie!");
+
+		// this will be user win senario
+
+		if (userChoiceString === "Rock") {
+			if (computerChoiceString === "Paper") {
+				showGameResult("Computer wins");
+			}
+			if (computerChoiceString === "Scissors") {
+				showGameResult("User wins");
+			}
+		}
+
+		if (userChoiceString === "Paper") {
+			if (computerChoiceString === "Scissors") {
+				showGameResult("Computer wins");
+			}
+			if (computerChoiceString === "Rock") {
+				showGameResult("User wins");
+			}
+		}
+
+		if (userChoiceString === "Scissors") {
+			if (computerChoiceString === "Rock") {
+				showGameResult("Computer wins");
+			}
+			if (computerChoiceString === "Paper") {
+				showGameResult("User wins");
+			}
+		}
+
+		return { ...score };
+	}
 }
 
-// this will be tie senario
-const userChoiceString = choiceToString[userChoice];
-const computerChoiceString = choiceToString[computerChoice];
-
-console.log("User Choice:", userChoiceString);
-console.log("Computer Choice:", computerChoiceString);
-
-if (userChoice === computerChoice) {
-	alert(`User chose ${userChoiceString}
-	 Computer chose ${computerChoiceString}
-	 It was a tie`);
-}
-
-function showWins(entity) {
-	alert(`User chose ${userChoiceString}
-	 Computer chose ${computerChoiceString}
-	 ${entity} wins`);
-}
-
-// this will be user win senario
-
-if (userChoiceString === "Rock") {
-	if (computerChoiceString === "Paper") {
-		showWins("Computer");
-	}
-	if (computerChoiceString === "Scissors") {
-		showWins("User");
-	}
-}
-
-if (userChoiceString === "Paper") {
-	if (computerChoiceString === "Scissors") {
-		showWins("Computer");
-	}
-	if (computerChoiceString === "Rock") {
-		showWins("User");
-	}
-}
-
-if (userChoiceString === "Scissors") {
-	if (computerChoiceString === "Rock") {
-		showWins("Computer");
-	}
-	if (computerChoiceString === "Paper") {
-		showWins("User");
-	}
-}
+let score = playGame({ user: 0, computer: 0 });
