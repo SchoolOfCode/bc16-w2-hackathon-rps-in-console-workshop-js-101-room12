@@ -31,19 +31,24 @@ function getUserChoice() {
 	return choice;
 }
 
+function showMessage(msg) {
+	alert(msg);
+}
+
 const configureShowGameResult = (userChoice, computerChoice) => (result) => {
-	alert(`User chose ${userChoice}
-	Computer chose ${computerChoice}
-	${result}`);
+	showMessage(`
+User chose ${userChoice}
+Computer chose ${computerChoice}
+
+${result}`);
 };
 
 function playGame(score) {
-	// Get computer's choice
+	// Get choices
 	const computerChoice = Math.floor(Math.random() * 3);
-
-	// Get the user's choice
 	const userChoice = getUserChoice();
 
+	// Convert the choice numbers to strings
 	const userChoiceString = choiceToString(userChoice);
 	const computerChoiceString = choiceToString(computerChoice);
 
@@ -56,44 +61,54 @@ function playGame(score) {
 	);
 
 	if (userChoice === null) {
-		alert("You've ended the game!");
+		showMessage("You've ended the game!");
 	}
 
-	// this will be tie senario
+	// Tie
 	if (userChoice === computerChoice) {
 		showGameResult("It was a tie!");
-
-		// this will be user win senario
-
-		if (userChoiceString === "Rock") {
-			if (computerChoiceString === "Paper") {
-				showGameResult("Computer wins");
-			}
-			if (computerChoiceString === "Scissors") {
-				showGameResult("User wins");
-			}
-		}
-
-		if (userChoiceString === "Paper") {
-			if (computerChoiceString === "Scissors") {
-				showGameResult("Computer wins");
-			}
-			if (computerChoiceString === "Rock") {
-				showGameResult("User wins");
-			}
-		}
-
-		if (userChoiceString === "Scissors") {
-			if (computerChoiceString === "Rock") {
-				showGameResult("Computer wins");
-			}
-			if (computerChoiceString === "Paper") {
-				showGameResult("User wins");
-			}
-		}
-
-		return { ...score };
 	}
+
+	// Win
+	else if (userChoiceString === "Rock") {
+		if (computerChoiceString === "Paper") {
+			showGameResult("Computer wins");
+			score.computer += 1;
+		} else if (computerChoiceString === "Scissors") {
+			showGameResult("User wins");
+			score.user += 1;
+		}
+	} else if (userChoiceString === "Paper") {
+		if (computerChoiceString === "Scissors") {
+			showGameResult("Computer wins");
+			score.computer += 1;
+		} else if (computerChoiceString === "Rock") {
+			showGameResult("User wins");
+			score.user += 1;
+		}
+	} else if (userChoiceString === "Scissors") {
+		if (computerChoiceString === "Rock") {
+			showGameResult("Computer wins");
+			score.computer += 1;
+		} else if (computerChoiceString === "Paper") {
+			showGameResult("User wins");
+			score.user += 1;
+		}
+	}
+	return { ...score };
 }
 
 let score = playGame({ user: 0, computer: 0 });
+
+while (score.user < 2 && score.computer < 2) {
+	score = playGame(score);
+}
+
+showMessage(`
+Best of 3:
+
+User Score = ${score.user}
+Computer Score = ${score.computer}
+
+${score.user > score.computer ? "User" : "Computer"} wins!
+`);
