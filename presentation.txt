@@ -1,17 +1,19 @@
-// David Introduction
+// David Introduction (30sec)
 
-// Mahdi Introduiction
+// Mahdi Introduiction (30sec)
 
-// Mahdi: Show MVP plan
+// Mahdi: Show MVP plan (1 min)
+Show the first flow chart. the basic plan and how viable it was to make that
+show the Evoloution of best of 3 plan and scoring system.
 
-// Mahdi: Show how that evolved into the Best of 3 plan
+// Mahdi: Show how that evolved into the Best of 3 plan (30 sec)
 
-// David: Challenges
+David: Rethink the plan in terms of game rules - making it a table (1 min)
 
-// David: What worked well, what didn't
+// David: Challenges (30 sec)
 
-// David: Rethink the plan in terms of game rules - making it a table
+// David: What worked well, what didn't (30 sec)
 
-// David: Look at and explain some of the code related to that
+// David: Look at and explain some of the code related to that (1 min)
 
-// Mahdi: Demo
+// Mahdi: Demo (30 sec)
