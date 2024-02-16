@@ -45,7 +45,7 @@ ${result}`);
 
 function playGame(score) {
 	// Get choices
-	const computerChoice = Math.floor(Math.random() * 3);
+	const computerChoice = Math.floor(Math.random() * 3).toString();
 	const userChoice = getUserChoice();
 
 	// Convert the choice numbers to strings
@@ -68,7 +68,6 @@ function playGame(score) {
 	if (userChoice === computerChoice) {
 		showGameResult("It was a tie!");
 	}
-
 	// Win
 	else if (userChoiceString === "Rock") {
 		if (computerChoiceString === "Paper") {
