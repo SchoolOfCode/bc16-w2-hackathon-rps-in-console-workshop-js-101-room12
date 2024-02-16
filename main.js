@@ -3,11 +3,36 @@
 // 2 = Scissors
 
 const rules = [
-	{ text: "Rock", emoji: "🤘", winsAgainst: [1, 3] },
-	{ text: "Lizard", emoji: "🦎", winsAgainst: [2, 4] },
-	{ text: "Spock", emoji: "🖖", winsAgainst: [3, 0] },
-	{ text: "Scissors", emoji: "✂", winsAgainst: [4, 1] },
-	{ text: "Paper", emoji: "🧻", winsAgainst: [0, 2] },
+	{
+		text: "Rock",
+		emoji: "🤘",
+		winsAgainst: [1, 3],
+		verbs: ["flattens", "crushes"],
+	},
+	{
+		text: "Lizard",
+		emoji: "🦎",
+		winsAgainst: [2, 4],
+		verbs: ["poisons", "eats"],
+	},
+	{
+		text: "Spock",
+		emoji: "🖖",
+		winsAgainst: [3, 0],
+		verbs: ["smashes", "vaporises"],
+	},
+	{
+		text: "Scissors",
+		emoji: "✂",
+		winsAgainst: [4, 1],
+		verbs: ["cuts", "decapitates"],
+	},
+	{
+		text: "Paper",
+		emoji: "🧻",
+		winsAgainst: [0, 2],
+		verbs: ["covers", "disproves"],
+	},
 ];
 
 /*
@@ -23,6 +48,11 @@ function resolveWin(choice1, choice2) {
 	const result = rules[choice1].winsAgainst.includes(Number(choice2));
 	console.log(result);
 	return result ? 1 : -1;
+}
+
+function getWinningAction(winningChoice, losingChoice) {
+	const index = rules[winningChoice].winsAgainst.indexOf(Number(losingChoice));
+	return rules[winningChoice].verbs[index];
 }
 
 function choiceToString(choice) {
@@ -43,10 +73,7 @@ ${choices.join("\n")}
 	let choice = prompt(question);
 
 	// If invalid input, ask again
-	while (
-		choice !== null &&
-		!(choice >= 0 && choice < rules.length)
-	) {
+	while (choice !== null && !(choice >= 0 && choice < rules.length)) {
 		choice = prompt(
 			`That was an invalid input, please try again.\n\n${question}`,
 		);
@@ -72,14 +99,13 @@ const setupGame = (username) => (score) => {
 	const computerChoice = Math.floor(Math.random() * rules.length).toString();
 	const userChoice = getUserChoice();
 
-	// Convert the choice numbers to strings
-	const userChoiceString = choiceToString(userChoice);
-	const computerChoiceString = choiceToString(computerChoice);
+	const displayedUserChoice = choiceToEmoji(userChoice);
+	const displayedComputerChoice = choiceToEmoji(computerChoice);
 
 	const showGameResult = configureShowGameResult(
 		username,
-		choiceToEmoji(userChoice),
-		choiceToEmoji(computerChoice),
+		displayedUserChoice,
+		displayedComputerChoice,
 	);
 
 	if (userChoice === null) {
@@ -93,12 +119,20 @@ const setupGame = (username) => (score) => {
 		}
 		// User wins
 		else if (result === 1) {
-			showGameResult(`${username} wins`);
+			const action = `${displayedUserChoice} ${getWinningAction(
+				userChoice,
+				computerChoice,
+			)} ${displayedComputerChoice}`;
+			showGameResult(`${action}\n${username} wins`);
 			score.user += 1;
 		}
 		// Computer Wins
 		else if (result === -1) {
-			showGameResult("Computer wins");
+			const action = `${displayedComputerChoice} ${getWinningAction(
+				computerChoice,
+				userChoice,
+			)} ${displayedUserChoice}`;
+			showGameResult(`${action}\nComputer wins`);
 			score.computer += 1;
 		}
 	}

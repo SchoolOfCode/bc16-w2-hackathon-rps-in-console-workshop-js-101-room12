@@ -1,27 +1,71 @@
-// David Introduction (30sec)
+// David Introduction
+======================
+Hi, I'm David, one half of our little team here. I'm comfortable with programming, but
+I'm a terrible planner! So this hackathon is really stretching my abilities when it
+comes to teamwork and planning.
 
-// Mahdi Introduiction (30sec)
+// Mahdi Introduiction
+======================
 
-// Mahdi: Show MVP plan (1 min)
+// Mahdi: Show MVP plan (1min)
+==============================
 Show the first flow chart. the basic plan and how viable it was to make that
 we did our best to impliment the agile mindset in this project and built something that works
 in the fastest way possible. 
 
 once we had a product that worked. Our thinking evolved which meant our product evolved with it.
 
-// Mahdi: Show how that evolved into the Best of 3 plan (30 sec)
-
+// Mahdi: Show how that evolved into the Best of 3 plan (30 secs)
+=================================================================
 Games need to have scores otherwise what fun are they?? our scoring system shown in the diagram,
 is how we navigated the system.
 
 show the Evoloution of best of 3 plan and scoring system.
 
-David: Rethink the plan in terms of game rules - making it a table (1 min)
+// David: Challenges
+=====================
+Mahdi, if you'd let me share my screen for a moment.
+So we normally had a team of 3 this week, but Saj is missing in action, so Mahdi and I
+really had to come together to plan out and implement our game.
+I personally struggled with the planning phase and was all too eager to jump into code - my first
+instinct to was to hack away at it. Mahdi slowed me down as we hashed it out together,
+and everything is clicking much better today, as I'll get to later.
+I think Mahdi struggled with code comprehension yesterday, but we kept linking our code back to our
+plan, and with a little practice, he's smashing it today.
 
-// David: Challenges (30 sec)
+// David: What worked well, what didn't - what we could have done differently
+=============================================================================
+As you saw in our plans, we went with a 'program flow' chart - that is, we planned out the flow
+of the program. It was helpful as reference, but we still felt there was something missing.
+Despite that, we did manage to get through implementing our MVP, and then our "Best of 3" extension
+off of that.
 
-// David: What worked well, what didn't (30 sec)
+We neglected to think in terms of the Disney Ideation, which may have helped us shift into the
+perspective that I'll talk about next.
+And we also failed to properly slice up tasks - we instead opted to simply follow our flowchart,
+which I believe likely held us back.
 
-// David: Look at and explain some of the code related to that (1 min)
+// David: Rethink the plan in terms of game rules - making it a table
+======================================================================
+So... A lot of our decision making in the code was 'hard-wired' and brittle because of this.
+We discussed how to 'automate' some of the logic and make it more dynamic and adaptable, but
+_this time_ we didn't jump straight into the code!
+Instead, we switched our thinking from "program flow" to "game rules", and added to our plan.
+Almost instantly, we saw that our game rules could be represented as a table, which you can see was
+added to our plan here <SHOW TABLE>. Thanks to that systematic thinkin, we started refactoring.
 
-// Mahdi: Demo (30 sec)
+// David: Look at and explain some of the code related to that
+===============================================================
+As you can see here <SHOW RULES TABLE>, we encoded the actual game rules into a table (well, it's actually an array
+because we're using numbers to represent each choice). Each choice contains an object that holds
+values against the other choices that it beats.
+
+With this in mind, we could replace our brittle hard-coded branching and encapsulate it into a
+dynamic function. What this allows us to do is modify the game rules _table_ and the game will
+adapt accordingly.
+
+So we managed to fill in that feeling that we were lacking something, and it all came from a change
+of perspective in the planning phase!
+
+// Mahdi: Demo
+===============
