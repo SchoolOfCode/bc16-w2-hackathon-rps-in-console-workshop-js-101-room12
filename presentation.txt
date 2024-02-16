@@ -4,9 +4,17 @@
 
 // Mahdi: Show MVP plan (1 min)
 Show the first flow chart. the basic plan and how viable it was to make that
-show the Evoloution of best of 3 plan and scoring system.
+we did our best to impliment the agile mindset in this project and built something that works
+in the fastest way possible. 
+
+once we had a product that worked. Our thinking evolved which meant our product evolved with it.
 
 // Mahdi: Show how that evolved into the Best of 3 plan (30 sec)
+
+Games need to have scores otherwise what fun are they?? our scoring system shown in the diagram,
+is how we navigated the system.
+
+show the Evoloution of best of 3 plan and scoring system.
 
 David: Rethink the plan in terms of game rules - making it a table (1 min)
 
