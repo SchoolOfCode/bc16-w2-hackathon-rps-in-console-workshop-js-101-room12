@@ -60,7 +60,7 @@ function choiceToEmoji(choice) {
 }
 
 function getUserChoice() {
-	const choices = rules.map((rule, i) => `${i} = ${choiceToEmoji(i)}`);
+	const choices = rules.map((rule, i) => `${i} = ${rule.emoji} - ${rule.text}`);
 
 	const question = `Choose a number!\n${choices.join("\n")}`;
 
