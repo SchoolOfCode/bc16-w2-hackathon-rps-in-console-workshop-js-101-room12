@@ -1,4 +1,7 @@
 // David Introduction
+Hi, I'm David, one half of our little team here. I'm comfortable with programming, but
+I'm a terrible planner! So this hackathon is really stretching my abilities when it
+comes to teamwork and planning.
 
 // Mahdi Introduiction
 
@@ -7,6 +10,7 @@
 // Mahdi: Show how that evolved into the Best of 3 plan
 
 // David: Challenges
+
 
 // David: What worked well, what didn't
 
