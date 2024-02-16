@@ -45,9 +45,7 @@ ${choices.join("\n")}
 	// If invalid input, ask again
 	while (
 		choice !== null &&
-		choice !== "0" &&
-		choice !== "1" &&
-		choice !== "2"
+		!(choice >= 0 && choice < rules.length)
 	) {
 		choice = prompt(
 			`That was an invalid input, please try again.\n\n${question}`,
