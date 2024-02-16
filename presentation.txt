@@ -2,16 +2,16 @@
 
 // Mahdi Introduiction
 
-// Show MVP plan
+// Mahdi: Show MVP plan
 
-// Show how that evolved into the Best of 3 plan
+// Mahdi: Show how that evolved into the Best of 3 plan
 
-// Challenges
+// David: Challenges
 
-// What worked well, what didn't
+// David: What worked well, what didn't
 
-// rethink the plan in terms of game rules - making it a table
+// David: Rethink the plan in terms of game rules - making it a table
 
-// Look at and explain some of the code related to that
+// David: Look at and explain some of the code related to that
 
-// Demo
+// Mahdi: Demo
